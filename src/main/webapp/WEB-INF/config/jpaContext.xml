@@ -26,7 +26,8 @@
 		</property>
 		<property name="jpaPropertyMap">
 			<map>
-				<entry key="hibernate.dialect" value="org.hibernate.dialect.Oracle8iDialect"/>
+				<entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+<!-- 				<entry key="hibernate.dialect" value="org.hibernate.dialect.Oracle8iDialect"/> -->
 				<entry key="hibernate.hbm2ddl.auto" value="validate"/>	<!-- Make sure database tables are valid -->
 				<entry key="hibernate.format_sql" value="true"/>		<!-- Make SQL output look pretty -->
 			</map>
@@ -40,11 +41,17 @@
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521/orcl"/>
-		<property name="username" value="AlphaWolf"/>
-		<property name="password" value="a"/>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/alphawolf?useSSL=false"/>
+		<property name="username" value="root"/>
+		<property name="password" value="password"/>
 	</bean>
+<!-- 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+<!-- 		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/> -->
+<!-- 		<property name="url" value="jdbc:oracle:thin:@localhost:1521/orcl"/> -->
+<!-- 		<property name="username" value="AlphaWolf"/> -->
+<!-- 		<property name="password" value="a"/> -->
+<!-- 	</bean> -->
 
 
 </beans>
