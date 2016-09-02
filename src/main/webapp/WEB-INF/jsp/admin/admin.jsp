@@ -4,8 +4,7 @@
 <!-- Content -->
 	<h1>Admin page</h1>
 	
-	<a href="addCenter.html">Add Test Center</a>
-	<a href="centerList.html">List Test Centers</a>
+	<a href="centerList.html">Test Centers</a>
 
 
 <!-- Footer -->

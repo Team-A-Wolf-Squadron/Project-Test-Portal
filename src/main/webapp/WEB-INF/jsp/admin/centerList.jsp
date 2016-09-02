@@ -23,6 +23,7 @@
 		
 
 </script>
+<a href="addCenter.html">Add Test Center</a><br/>
 
 <select id="centers" onchange="getCenterInfo()" size="10">
 	<c:forEach var="center" items="${ centers}">

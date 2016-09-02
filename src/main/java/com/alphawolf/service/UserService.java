@@ -19,4 +19,8 @@ public interface UserService {
 
 	User update(User user, StudentTest studentTest);
 
+	List<User> findByRole(String string);
+
+	User findById(Long id);
+
 }

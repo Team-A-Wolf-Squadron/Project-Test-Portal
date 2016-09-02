@@ -39,19 +39,22 @@ public class CenterController {
 	
 	@RequestMapping(value = "/admin/addCenter", method = RequestMethod.GET)
 	public String addCenter(Model model, HttpSession session) {
+		model.addAttribute("admins", userService.findByRole("ROLE_ADMIN"));
+		model.addAttribute("center", new Center());
 		return "admin/addCenter";
 	}
 	
 	@RequestMapping(value = "/admin/addCenter", method = RequestMethod.POST)
 	public String addCenter(@ModelAttribute("center") Center center,
-					@RequestParam(value = "admin_id") String adminName,
+					@RequestParam(value = "admin_id") Long adminId,
 					Model model, HttpSession session, 
 					BindingResult result) {
 		if(result.hasErrors()) {
 			return "admin/addCenter";
 		} else {
-			User admin = userService.findByUsername(adminName);
+			User admin = userService.findById(adminId);
 			center.setAdmin(admin);
+			admin.addCenter(center);
 			centerService.save(center);
 		}
 		return "admin/centerAdded";
