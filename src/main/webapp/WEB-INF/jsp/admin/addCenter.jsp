@@ -55,7 +55,7 @@
 		<div class="form-group">
 	<label class="control-label col-sm-5" for="name">Admin:</label><!-- TODO: fix: select -->
 	<div class="col-sm-3">
-		<input path="admin_id" cssErrorClass="error" class="form-control" placeholder="Enter id of admin"/>
+		<form:input path="admin_id" cssErrorClass="error" class="form-control" placeholder="Enter id of admin"/>
 	</div>
 	</div>
 	<div class="form-group" > 
