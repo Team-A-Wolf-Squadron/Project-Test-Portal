@@ -31,7 +31,7 @@ public class User {
 	@Column(name="last_name")
 	private String lastName;
 	
-	@OneToMany(mappedBy="admin", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="admin", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private List<Center> center_admins;
 
 	@Column(name="NP")
@@ -191,5 +191,8 @@ public class User {
 	}
 	public boolean addStudentTest(StudentTest studentTest) {
 		return studentTests.add(studentTest);
+	}
+	public void addCenter(Center center) {
+		center_admins.add(center);
 	}
 }

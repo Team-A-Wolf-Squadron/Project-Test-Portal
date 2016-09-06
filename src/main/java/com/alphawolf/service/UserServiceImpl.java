@@ -41,6 +41,13 @@ public class UserServiceImpl implements UserService {
 	public User findByUsername(String username) {
 		return userRepository.findByUsername(username);
 	}
+	public List<User> findByRole(String role) {
+		return userRepository.findByRole(role);
+	}
+	public User findById(Long id) {
+		return userRepository.findOne(id);
+	}
+
 	
 	private void sendMail(User user){
 		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
@@ -63,7 +70,7 @@ public class UserServiceImpl implements UserService {
 					mailbody);				//Message
 	}
 
-
+	@Transactional
 	public User update(User user, User newUserInfo, String newPassword) {
 		System.out.println("In userservice.update");
 		if(! newUserInfo.getPhonenumber().equals(user.getPhonenumber() ) && newUserInfo.getPhonenumber().trim().length() > 0 ) {
@@ -109,15 +116,16 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
-
+	@Transactional
 	public User update(User user) {
 		return userRepository.save(user);
 	}
 
-
+	@Transactional
 	public User update(User user, StudentTest studentTest) {
 		user.addStudentTest(studentTest);
 		return userRepository.save(user);
 	}
+
 
 }

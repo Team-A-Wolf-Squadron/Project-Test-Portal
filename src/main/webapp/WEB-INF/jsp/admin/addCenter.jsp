@@ -53,9 +53,14 @@
 	</div>
 	</div>
 		<div class="form-group">
-	<label class="control-label col-sm-5" for="name">Admin:</label><!-- TODO: fix: select -->
+	<label class="control-label col-sm-5" for="name">Admin:</label>
 	<div class="col-sm-3">
-		<form:input path="admin_id" cssErrorClass="error" class="form-control" placeholder="Enter id of admin"/>
+		<select id="admin" name="admin_id">
+           	<option value="">--Please select an admin--</option>
+           	<c:forEach var="admin" items="${ admins }">
+           		<option value="${admin.id}">${admin.username}</option>
+           	</c:forEach>
+		</select>
 	</div>
 	</div>
 	<div class="form-group" > 
